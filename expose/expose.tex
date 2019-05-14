@@ -1,11 +1,14 @@
 \documentclass[colorback,accentcolor=tud9c,12pt]{tudreport}
 
+\usepackage{caption}
+\usepackage{epigraph}
+\usepackage{listings}
+\setlength{\epigraphwidth}{32em}
 \usepackage[stable]{footmisc}
 \usepackage[ngerman,pdfview=FitH,pdfstartview=FitV]{hyperref}
-
 \usepackage{booktabs}
 
-\title{Predicting earthquakes}
+\title{Predicting Earthquakes}
 \subtitle{Expos\'{e} for the ``Deep Learning: Architectures and Methods'' project}
 \subsubtitle{David Gengenbach (\href{mailto:info@davidgengenbach.de}{info@davidgengenbach.de})\\Tom König (\href{mailto:TODO}{TODO})}
 \institution{Fachbereich Informatik}
@@ -17,12 +20,72 @@
 		\textbf{\href{https://www.kaggle.com/c/LANL-Earthquake-Prediction/overview}{LANL-Earthquake-Prediction}} hosted on the \href{https://www.kaggle.com}{Kaggle} platform.
 		Here, we try to predict when the next earthquake is happening using historical data provided by the \textbf{\href{https://www.lanl.gov/}{Los Almos National Labratory}}.
 		
-		TBD: What's our goal? Motivation?
+		We hope that the community-driven design of Kaggle can result in a great learning opportunity. Another big motivator is the open-source character of the Kaggle community which in turn enables the comparison and sharing of different approaches or solutions.
 	\end{abstract}
+
+	\chapter{The challenge}
 	
-	\chapter{Kaggle Challenge}
+	\epigraph{``Forecasting earthquakes is one of the most important problems in Earth science because of their devastating consequences. Current scientific studies related to earthquake forecasting focus on three key points: \textbf{when} the event will occur, \textbf{where} it will occur, and \textbf{how large} it will be.''}{Description of the challenge on \textit{https://www.kaggle.com/c/LANL-Earthquake-Prediction/overview}}
 	
-	\section{Dataset}
+	\section{The platform}
+	Kaggle is one of the most well known platforms for machine learning challenges and competitions.
+	Third-party members like universities, private companies, and even governments can submit challenges to the public. These consist of a description of the problem, the data and, optionally, a submission timeline.
 	
-	\href{https://www.kaggle.com/c/LANL-Earthquake-Prediction/data}{Challenge Data}
+	Kaggle as a platform provides the tools for downloading the data, sharing your approaches/solutions with others and even allow the end-user to implement their solution in an easy to understand way.
+	The community character in particular is special: one can ask a question in the forum, for example, and get an answer from other members of the community quite quickly. Sometimes, these answers are also of high quality and created by professional data-scientists.
+	
+	
+	\section{The data}
+	The data can be downloaded from Kaggle after registering and accepting the Honor code of the project.
+	
+	It contains approximately 8.9 Gigabyte of Comma-Separated-Value (CSV) files with real, historical data.
+	
+	Examples are shown below.
+	
+	\begin{lstlisting}[caption={Example values from the train set, \textit{train.csv}},captionpos=b]
+	acoustic_data,time_to_failure
+	12,1.4690999832
+	6,1.4690999821
+	8,1.469099981
+	5,1.4690999799
+	8,1.4690999788
+	8,1.4690999777
+	9,1.4690999766
+	7,1.4690999755
+	-5,1.4690999744
+	\end{lstlisting}
+	
+	\begin{lstlisting}[caption={Example values from the test set, \textit{seg\_ff7478.csv}},captionpos=b]
+	acoustic_data
+	6
+	5
+	3
+	5
+	6
+	3
+	2
+	3
+	7
+	\end{lstlisting}
+	
+	
+	\begin{lstlisting}[caption={Example submission file, \textit{sample\_submission.csv}},captionpos=b]
+	seg_id,time_to_failure
+	seg_00030f,0
+	seg_0012b5,0
+	seg_00184e,0
+	seg_003339,0
+	seg_0042cc,0
+	seg_004314,0
+	seg_004cd2,0
+	seg_004ee5,0
+	seg_004f1f,0
+	\end{lstlisting}
+	
+	
+	\section{The opportunity}
+	The especially prevalent character of sharing in the Kaggle community results in a beautiful learning opportunity. Since we do not have enough time beside our studies, this course would give us a great way to engage in ``real'' problem solving - with real competition and collaboration of an eager machine learning community and a trove of knowledge in form of a highly visited forum of the challenge.
+	Together with the enforced best-practices of the Kaggle platform, eg. never obtaining the solutions for the test set - only calculated scores, this challenge may also \textit{challenge} us not only to learn more machine learning but about scientific practice itself.
+	
+	
 \end{document}
