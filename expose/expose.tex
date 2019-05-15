@@ -6,10 +6,16 @@
 \usepackage{multicol}
 \usepackage{caption}
 \usepackage{tabularx}
-\setlength{\epigraphwidth}{32em}
+\setlength{\epigraphwidth}{33em}
 \usepackage[stable]{footmisc}
-\usepackage[ngerman,pdfview=FitH,pdfstartview=FitV]{hyperref}
+%\usepackage[ngerman,pdfview=FitH,pdfstartview=FitV]{hyperref}
 \usepackage{booktabs}
+\usepackage{fontawesome}
+\usepackage[hidelinks]{hyperref}
+
+% Redefinition, symbol included in link:
+\let\orighref\href
+\renewcommand{\href}[2]{\orighref{#1}{#2\,\faExternalLink}}
 
 \newcolumntype{L}[1]{>{\hsize=#1\hsize\raggedright\arraybackslash}X}%
 \newcolumntype{R}[1]{>{\hsize=#1\hsize\raggedleft\arraybackslash}X}%
@@ -33,7 +39,7 @@
 
 	\chapter{The challenge}
 	
-	\epigraph{``Forecasting earthquakes is one of the most important problems in Earth science because of their devastating consequences. Current scientific studies related to earthquake forecasting focus on three key points: \textbf{when} the event will occur, \textbf{where} it will occur, and \textbf{how large} it will be.''}{Description of the challenge on \textit{https://www.kaggle.com/c/LANL-Earthquake-Prediction/overview}}
+	\epigraph{``Forecasting earthquakes is one of the most important problems in Earth science because of their devastating consequences. Current scientific studies related to earthquake forecasting focus on three key points: \textbf{when} the event will occur, \textbf{where} it will occur, and \textbf{how large} it will be.''}{Description of the challenge on \textit{\href{https://www.kaggle.com/c/LANL-Earthquake-Prediction/overview}{https://www.kaggle.com/c/LANL-Earthquake-Prediction/overview}}}
 	
 	The objective is to use historical, acoustic data to predict \textbf{when} the next earthquake will happen.
 	
