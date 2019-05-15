@@ -5,10 +5,15 @@
 \usepackage{listings}
 \usepackage{multicol}
 \usepackage{caption}
+\usepackage{tabularx}
 \setlength{\epigraphwidth}{32em}
 \usepackage[stable]{footmisc}
 \usepackage[ngerman,pdfview=FitH,pdfstartview=FitV]{hyperref}
 \usepackage{booktabs}
+
+\newcolumntype{L}[1]{>{\hsize=#1\hsize\raggedright\arraybackslash}X}%
+\newcolumntype{R}[1]{>{\hsize=#1\hsize\raggedleft\arraybackslash}X}%
+\newcolumntype{C}[2]{>{\hsize=#1\hsize\columncolor{#2}\centering\arraybackslash}X}%
 
 \title{Predicting Earthquakes}
 \subtitle{Expos\'{e} for the ``Deep Learning: Architectures and Methods'' project}
@@ -39,16 +44,18 @@
 	\section{The data}
 	The data can be downloaded from Kaggle after registering and accepting the Honor code of the project.
 	
-	It contains approximately 8.9 Gigabyte of Comma-Separated-Value (CSV) files with real, historical acoustical measurements before earthquakes.
-		
-	\vspace{5mm}
+	The data consists of approximately 8.9 gigabytes of Comma-Separated-Value (CSV) files with realorical, acoustical measurements before earthquakes.
+	
+	The training data contains continuous measurements of acoustical data.
+	, hist
+	\vspace{8mm}
 	
 	\begin{minipage}[b]{0.33333\textwidth}
 		acoustic\_data,time\_to\_failure\\
 		12,1.4690\\
 		6,1.46909\\
 		8,1.46909
-		\captionof{figure}{train.csv}
+		\captionof{figure}{train.csv}\label{fig:data_train}
 	\end{minipage}%
 	\begin{minipage}[b]{0.33333\textwidth}
 		acoustic\_data\\
@@ -64,6 +71,31 @@
 		seg\_00184e,0
 		\captionof{figure}{example\_submission.csv}
 	\end{minipage}%
+
+	\vspace{8mm}
+	
+	
+	\begin{figure}[htp]
+		\begin{tabularx}{\textwidth}{ L{8}|L{5}|L{12}|L{7} }
+			Field name & Type & Description & Example value \\
+			\hline 
+			acoustic\_data & Input & ``the seismic signal [int16]'' & 12 \\
+			\hline 
+			time\_to\_failure & Target & ``the time (in seconds) until the next laboratory earthquake [float64]''  & 1.4690 \\
+			\hline 
+			seg\_id & Submission input ID & ``the test segment ids for which predictions should be made (one prediction per segment)'' & seg\_00030f \\
+		\end{tabularx}
+		\caption{Descriptions taken from the challenge website}
+	\end{figure}
+	
+	
+	As we can see in Figure \ref{fig:data_train}, the features are one-dimensional and discrete numbers (\textit{acoustic\_data}), while the target is a continuous number (\textit{time\_to\_failure}).
+	So, this challenge is basically a regression problem with one input and output.
+	
+	
+	The size of the data also increases the difficulty as training/test/validation phases get longer. Additional measures must be taken for account for these longer waiting times, eg. automating the testing of different algorithms in parallel instead of waiting for the individual evaluations to finish sequentially and starting a new one.
+	
+	An additional difficulty arises due to the fact that the features are one-dimensional. So, one has to be careful which algorithms to choose instead of just letting a very big neural figure it out semi-automatically and just waiting for the grid/random search to be over.
 	
 	\section{The opportunity}
 	The especially prevalent character of sharing in the Kaggle community results in a beautiful learning opportunity. Since we do not have enough time beside our studies, this course would give us a great way to engage in ``real'' problem solving - with real competition and collaboration of an eager machine learning community and a trove of knowledge in form of a highly visited forum of the challenge.
