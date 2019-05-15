@@ -71,12 +71,12 @@
 			seg\_id & Submission input ID & ``the test segment ids for which predictions should be made (one prediction per segment)'' & seg\_00030f \\
 		\end{tabularx}
 		\caption{Descriptions taken from the challenge website}
+		\label{table:data}
 	\end{figure}
 	
 	
-	As we can see in Figure \ref{fig:data_train}, the features are one-dimensional and discrete numbers (\textit{acoustic\_data}), while the target is a continuous number (\textit{time\_to\_failure}).
+	As we can see in Table \ref{table:data}, the features are one-dimensional and discrete numbers (\textit{acoustic\_data}), while the target is a continuous number (\textit{time\_to\_failure}).
 	So, this challenge is basically a regression problem with one input and output.
-	
 	
 	The size of the data also increases the difficulty as training/test/validation phases get longer. Additional measures must be taken for account for these longer waiting times, eg. automating the testing of different algorithms in parallel instead of waiting for the individual evaluations to finish sequentially and starting a new one.
 	
