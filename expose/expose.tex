@@ -54,35 +54,10 @@
 	\section{The data}
 	The data can be downloaded from Kaggle after registering and accepting the Honor code of the project.
 	
-	The data consists of approximately 8.9 gigabytes of Comma-Separated-Value (CSV) files with realorical, acoustical measurements before earthquakes.
+	The data consists of approximately 8.9 gigabytes of Comma-Separated-Value (CSV) files with (real) historical, measurements before earthquakes.
 	
 	The training data contains continuous measurements of acoustical data.
-	
-	\vspace{8mm}
-	
-	\begin{minipage}[b]{0.33333\textwidth}
-		acoustic\_data,time\_to\_failure\\
-		12,1.4690\\
-		6,1.46909\\
-		8,1.46909
-		\captionof{figure}{train.csv}\label{fig:data_train}
-	\end{minipage}%
-	\begin{minipage}[b]{0.33333\textwidth}
-		acoustic\_data\\
-		6\\
-		5\\
-		3
-		\captionof{figure}{\textit{test.csv}}
-	\end{minipage}%
-	\begin{minipage}[b]{0.33333\textwidth}
-		seg\_id,time\_to\_failure\\
-		seg\_00030f,0\\
-		seg\_0012b5,0\\
-		seg\_00184e,0
-		\captionof{figure}{example\_submission.csv}
-	\end{minipage}%
-
-	\vspace{8mm}
+	The test data consists of several approximately 2600 different continuous measurement sets without the target value (\textit{time\_to\_failure}).
 	
 	
 	\begin{figure}[htp]
